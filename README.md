@@ -5,7 +5,7 @@ This repository contains the implementation for a causal version of wav2vec2. Ad
 The code is based on Pierre Orhan's implementation of *wav2vec2* and the corresponding paradigms aimed at testing the model's ability to extract auditory regularities from novel sequences. For more information, check out <https://github.com/PierreOrhan/>.
 
 # Example
-This section contains a use case of *wav2vec2* acquiring regularities in Al Roumi et al. (2023)'s algebraic-pattern detection paradigm. First, download both *SurpriseProbing* and *ControllStim* and install both packages:
+This section contains a use case of *wav2vec2* acquiring regularities in Al Roumi et al. (2023)'s algebraic-pattern detection paradigm. First, download both *SurpriseProbing* and *ControllStim* and install both packages (don't forget to install the other requirements too):
 
 ```
 pip install -e /pathToSurpriseProbing
