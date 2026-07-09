@@ -1,0 +1,12 @@
+# Core model/runtime dependencies
+numpy<2
+torch==2.0.1
+transformers>=4.30,<5
+huggingface-hub>=0.15.1,<1.0
+datasets>=2.0
+zarr>=2.0
+torchcodec
+
+# Utilities mentioned in the project README
+matplotlib
+tqdm
