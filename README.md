@@ -307,3 +307,6 @@ df.to_csv("/content/experiment_matched_random_fma.csv", index=False)
 ```
 
 Depending on how the files are stored, it might be the case that this code needs to be adapted to each user's settings, but this would be the general idea and use case of *wav2vec* acquiring auditory regularities after self-sueprvised pre-training.
+
+# Contact
+If you find any bug or would like to contact me, you can do so by sending an email to izeimujika@hotmail.com.
