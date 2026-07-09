@@ -8,8 +8,8 @@ The code is based on Pierre Orhan's implementation of *wav2vec2* and the corresp
 This section contains a use case of *wav2vec2* acquiring regularities in Al Roumi et al. (2023)'s algebraic-pattern detection paradigm. First, download both *SurpriseProbing* and *ControllStim* and install both packages:
 
 ```
-pip install -e /content/SurpriseProbing
-pip install -e /content/ControlledStim
+pip install -e /pathToSurpriseProbing
+pip install -e /pathToControlledStim
 ```
 
 Now, generate the stimuli (binary-tone sequences of different levels of complexity):
