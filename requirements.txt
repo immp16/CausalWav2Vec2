@@ -1,7 +1,7 @@
 # Core model/runtime dependencies
 numpy<2
-torch==2.0.1
-transformers>=4.30,<5
+torch
+transformers
 huggingface-hub>=0.15.1,<1.0
 datasets>=2.0
 zarr>=2.0
