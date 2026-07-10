@@ -172,6 +172,7 @@ df_rep, df_rnd, df_all = generate_yoked_repeat_vs_random_separate(
 We will now generate masks for each tone so that the model can predict them. That way, we will measure how certain/uncertain the model was when predicting each tone:
 
 ```
+# Again, ensure the package is correctly located. Otherwise, this import will give an error.
 from ControlledStim.cstim.sounds.experimentsClass.element_masking import mask_and_latent
 import os
 
