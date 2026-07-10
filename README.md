@@ -265,7 +265,7 @@ model = Wav2vec2_forLoss_ConstrainedMask(
         'izei'
     ).eval()
 missing, unexpected = model.load_state_dict(checkpoint['model'], strict=False)
-model.to('cuda')
+model = model.to('cuda')
 ```
 
 Now, we will load data into *wav2vec2* and compute contrastive loss for each tone in the sequences. Feel free to change from the algebraic pattern you chose to matched randoms:
