@@ -19,13 +19,16 @@ import copy
 import numpy as np
 import pandas as pd
 from pathlib import Path
+import os
 
 # Correctly select the location of the package you just installed, otherwise
 # the import will give an error.
-from ControlledStim.cstim.sounds.perExperiment.protocols.AlRoumi2023 import (
+os.chdir('/content/CausalWav2Vec2/ControlledStim')
+from cstim.sounds.perExperiment.protocols.AlRoumi2023 import (
     RandRegRand_LOT,
     RandRegRand_LOT_MatchedRandom,
 )
+os.chdir('/content')
 
 def generate_yoked_repeat_vs_random_separate(
     n_trial: int,
@@ -174,8 +177,9 @@ We will now generate masks for each tone so that the model can predict them. Tha
 
 ```
 # Again, ensure the package is correctly located. Otherwise, this import will give an error.
-from ControlledStim.cstim.sounds.experimentsClass.element_masking import mask_and_latent
-import os
+os.chdir('/content/CausalWav2Vec2/ControlledStim')
+from cstim.sounds.experimentsClass.element_masking import mask_and_latent
+os.chdir('/content')
 
 mask_and_latent(f"/content/randregrand_lot/{alg_pattern}", causal = True)
 mask_and_latent(f"/content/randregrand_lot/matched_random", causal = True)
@@ -245,7 +249,9 @@ import tqdm
 from transformers import Wav2Vec2Config, Wav2Vec2FeatureExtractor
 
 # Remember to correctly set the package location
-from SurpriseProbing.surprise_probing.ANN.models import Wav2vec2_forLoss_ConstrainedMask
+os.chdir('/content/CausalWav2Vec2/SurpriseProbing')
+from surprise_probing.ANN.models import Wav2vec2_forLoss_ConstrainedMask
+os.chdir('/content')
 
 config = Wav2Vec2Config.from_pretrained('patrickvonplaten/wav2vec2-base-v2')
 
@@ -265,13 +271,16 @@ model.to('cuda')
 Now, we will load data into *wav2vec2* and compute contrastive loss for each tone in the sequences. Feel free to change the matched randoms for the algebraic pattern you chose:
 
 ```
-from SurpriseProbing.surprise_probing.probe.analysers.utils import load_ANNdataset_withMask, load_ANNdataset
+# As always, change the path to locate the package
+os.chdir('/content/CausalWav2Vec2/SurpriseProbing')
+from surprise_probing.probe.analysers.utils import load_ANNdataset_withMask, load_ANNdataset
+os.chdir('/content')
 from torch.utils.data import DataLoader
 
 ds = load_ANNdataset_withMask(pathlib.Path('/content/randregrand_lot/matched_random'), partially_causal = False)
 
 # Make sure you get inside the folder corresponding to the algebraic-pattern files or the matched-random files! Otherwise, the library that loads audios will not find the files.
-%cd /content/randregrand_lot/matched_random/
+os.chdir(f'/content/randregrand_lot/{alg_pattern}')
 
 batch_size = 1
 path_config =  Path("/content/")
