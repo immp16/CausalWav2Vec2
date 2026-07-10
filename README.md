@@ -312,7 +312,7 @@ for row_id, batch in enumerate(dataLoader):
         out = model(**inputs)
 
     rows.append({
-        "id": batch['meta'][0][4], # Allows knowing which contrastive loss value corresponds to which audio file. Note that depending on how
+        "id": batch['meta'][0][2], # Allows knowing which contrastive loss value corresponds to which audio file. Note that depending on how
                                    # the 'meta' attribute is set, this field could require some modifications.
         "row_id": row_id,
         "loss": float(out[mainloss_name].item()),
