@@ -276,8 +276,9 @@ os.chdir('/content/CausalWav2Vec2/SurpriseProbing')
 from surprise_probing.probe.analysers.utils import load_ANNdataset_withMask, load_ANNdataset
 os.chdir('/content')
 from torch.utils.data import DataLoader
+import pathlib
 
-ds = load_ANNdataset_withMask(pathlib.Path('/content/randregrand_lot/matched_random'), partially_causal = False)
+ds = load_ANNdataset_withMask(pathlib.Path(f'/content/randregrand_lot/{alg_pattern}'), partially_causal = False)
 
 # Make sure you get inside the folder corresponding to the algebraic-pattern files or the matched-random files! Otherwise, the library that loads audios will not find the files.
 os.chdir(f'/content/randregrand_lot/{alg_pattern}')
@@ -313,7 +314,7 @@ for row_id, batch in enumerate(dataLoader):
 
 import pandas as pd
 df = pd.DataFrame(rows)
-df.to_csv("/content/experiment_matched_random_fma.csv", index=False)
+df.to_csv(f'/content/experiment_{alg_pattern}_fma.csv', index=False)
 ```
 
 Depending on how the files are stored, it might be the case that this code needs to be adapted to each user's settings, but this would be the general idea and use case of *wav2vec* acquiring auditory regularities after self-sueprvised pre-training.
