@@ -268,7 +268,7 @@ missing, unexpected = model.load_state_dict(checkpoint['model'], strict=False)
 model.to('cuda')
 ```
 
-Now, we will load data into *wav2vec2* and compute contrastive loss for each tone in the sequences. Feel free to change the matched randoms for the algebraic pattern you chose:
+Now, we will load data into *wav2vec2* and compute contrastive loss for each tone in the sequences. Feel free to change from the algebraic pattern you chose to matched randoms:
 
 ```
 # As always, change the path to locate the package
