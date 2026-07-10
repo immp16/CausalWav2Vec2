@@ -250,11 +250,10 @@ from SurpriseProbing.surprise_probing.ANN.models import Wav2vec2_forLoss_Constra
 config = Wav2Vec2Config.from_pretrained('patrickvonplaten/wav2vec2-base-v2')
 
 extractor = Wav2Vec2FeatureExtractor.from_pretrained('patrickvonplaten/wav2vec2-base-v2')
-extractor.return_attention_mask = True # Or false if in Orhan
-#extractor.do_normalize = False
+extractor.return_attention_mask = True
 extractor.to_json_file('./extractor.json')
 
-checkpoint = torch.load(f'/content/wav2vec2_fma_causal_100k.checkpoint', weights_only=False, map_location='cuda:0')
+checkpoint = torch.load(f'/content/wav2vec2_fma_causal_100k.checkpoint', weights_only=False, map_location='cuda:0') # Use a GPU (or be patient...)
 model = Wav2vec2_forLoss_ConstrainedMask(
         config,
         'izei'
