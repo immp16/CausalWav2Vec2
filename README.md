@@ -277,6 +277,12 @@ from surprise_probing.probe.analysers.utils import load_ANNdataset_withMask, loa
 os.chdir('/content')
 from torch.utils.data import DataLoader
 import pathlib
+import torchvision.io as _tvio
+if not hasattr(_tvio, 'VideoReader'):
+    import torchcodec
+    class _VideoReader:
+        pass
+    _tvio.VideoReader = _VideoReader
 
 ds = load_ANNdataset_withMask(pathlib.Path(f'/content/randregrand_lot/{alg_pattern}'), partially_causal = False)
 
