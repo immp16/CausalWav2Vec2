@@ -153,7 +153,7 @@ def generate_yoked_repeat_vs_random_separate(
     return df_repeat, df_random, df_all
 
 tones_fs = np.logspace(np.log(222), np.log(2000), 20, base=np.exp(1))
-alg_pattern = 'pairsAndAlt1 # You may change the pattern :)
+alg_pattern = 'pairsAndAlt1' # You may change the pattern :)
 df_rep, df_rnd, df_all = generate_yoked_repeat_vs_random_separate(
     n_trial=5,
     lot_seq = alg_pattern,
